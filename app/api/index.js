@@ -2,39 +2,22 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
+var _ = require('lodash');
 
 var api = new express.Router();  
 
+var db = require('./models');
+
 module.exports = function(config) {
-
-  var mockResolution = {
-    id: 1,
-    description: 'A sweet thing I will',
-    complete: false,
-    status: 'Whatever'
-  };
-
-  var mockResolution2 = {
-    id: 2,
-    description: 'A sweet thing I will',
-    complete: false,
-    status: 'Whatever'
-  };
-
-  var mockResolution3 = {
-    id: 3,
-    description: 'A sweet thing I will',
-    complete: false,
-    status: 'Whatever'
-  };
-
-  var resolutions = [ mockResolution, mockResolution2, mockResolution3 ];
-
   api.use(bodyParser.json());
   api.use(bodyParser.urlencoded({ extended: true })); 
 
-  api.get('/resolutions', function(req, res) {  
-    res.json(resolutions);
+  api.get('/resolutions', function(req, res) {
+    db.Resolution.all().then(function(resolutions) {
+      res.json(_.map(resolutions, function(resolution) {
+        return resolution.toJSON();
+      }));
+    });
   });
 
   api.get('/resolutions/:id', function(req, res) {
@@ -42,9 +25,11 @@ module.exports = function(config) {
   });
 
   api.post('/resolutions', function(req, res) {
-    console.log(req.body)
-
-    res.sendStatus(200);
+    db.Resolution
+      .create(req.body)
+      .then(function(resolution) {
+        res.json(resolution.toJSON());
+      });
   });
 
   api.put('/resolutions/:id', function(req, res) {
@@ -52,7 +37,17 @@ module.exports = function(config) {
   });
 
   api.delete('/resolutions/:id', function(req, res) {
-    res.sendStatus(200);
+    db.Resolution
+      .find(req.params.id)
+      .then(function(resolution) {
+        if (!resolution) {
+          res.sendStatus(200);
+          return;
+        };
+
+        resolution.destroy()
+        res.sendStatus(200);
+      });
   });
 
   return api;
