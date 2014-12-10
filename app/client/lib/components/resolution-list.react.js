@@ -30,7 +30,6 @@ ResolutionList.componentDidMount = function () {
 }
 
 ResolutionList.render = function() {
-  console.log(this.state.resolutions)
   var resolutions = _.map(this.state.resolutions, function(resolution) {
     return (
       <ResolutionItem

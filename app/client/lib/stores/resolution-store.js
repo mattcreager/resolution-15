@@ -43,7 +43,6 @@ ResolutionStore.onNewResolution = function(payload) {
 };
 
 ResolutionStore.onLoadSuccess = function(payload) {
-  console.log('we have a payload', payload);
   this.resolutions = payload;
   this.emit(constants.CHANGE_EVENT);
 };

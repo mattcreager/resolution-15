@@ -26,17 +26,22 @@ var mockResolution = {
 var id = 5;
 
 resolutionActions.create = function(description) {
-  var self = this;
-  var mock = _.clone(mockResolution);
+  var dispatch = this.dispatch.bind(this);
 
-  mock.id = id++;
-  mock.description = description;
+  dispatch(constants.CREATE_RESOLUTION, {
+    id: id++,
+    description: description,
+    complete: false,
+    status: 'Whatever'
+  });
 
-  self.dispatch(constants.CREATE_RESOLUTION, mock);
-
-  setTimeout(function() {
-    self.dispatch(constants.CREATE_RESOLUTION_SUCCESS, mock);
-  }, 500);
+  axios.post('api/resolutions', { description: description })
+    .then(function(result) { 
+      console.log('this is the create result:', result);
+      dispatch(constants.CREATE_RESOLUTION_SUCCESS, result);
+    }).catch(function(err) {
+      dispatch(constants.CREATE_RESOLUTION_FAIL, err);
+    });
 };
 
 resolutionActions.remove = function(uid) {
@@ -50,37 +55,16 @@ resolutionActions.remove = function(uid) {
 };
 
 resolutionActions.load = function() {
-  console.log('loading....')
+  var dispatch = this.dispatch.bind(this);
 
-  var self = this;
+  dispatch(constants.LOAD_RESOLUTIONS);
 
-  // wtf.
-  setTimeout(function() {
-    self.dispatch(constants.LOAD_RESOLUTIONS);
-  }, 0);
-
-  setTimeout(function() {
-    var mockResolution2 = _.clone(mockResolution);
-    mockResolution2.id = 2;
-
-    var mockResolution3 = _.clone(mockResolution);
-    mockResolution3.id = 3;
-
-    self.dispatch(constants.LOAD_RESOLUTIONS_SUCCESS, [mockResolution, mockResolution2, mockResolution3]);
-  }, 500);
-
-  // get('token').then(function(token) {
-  //   return  axios({
-  //     method: 'get',
-  //     url: 'http://chosa-api.herokuapp.com/resolutions/all',
-  //     headers: { 'Authorization': 'Bearer ' + token }
-  //   });
-  // }).then(function(resolutions) {
-  //   self.dispatch(constants.LOAD_QUESTS_SUCCESS, resolutions.data);
-  // }).catch(function(err) {
-  //   console.log('err',err);
-  //   self.dispatch(constants.LOAD_QUESTS_FAIL, err);
-  // });
+  axios.get('api/resolutions')
+    .then(function(resolutions) {
+      dispatch(constants.LOAD_RESOLUTIONS_SUCCESS, resolutions.data);
+    }).catch(function(err) {
+      dispatch(constants.LOAD_RESOLUTIONS_FAIL, err);
+    });
 
   if (firstLoad) {
     firstLoad = false;
