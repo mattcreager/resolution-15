@@ -35,6 +35,7 @@ ResolutionList.render = function() {
         uid={resolution.id}
         description={resolution.description}
         status={resolution.status}
+        complete={resolution.complete}
       />
     );
   })

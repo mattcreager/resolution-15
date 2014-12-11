@@ -33,7 +33,14 @@ module.exports = function(config) {
   });
 
   api.put('/resolutions/:id', function(req, res) {
-    res.sendStatus(200);
+    db.Resolution
+      .find(req.params.id)
+      .then(function(resolution) {
+        return resolution.updateAttributes(req.body);
+      })
+      .then(function(result) {
+        res.sendStatus(200);
+      })
   });
 
   api.delete('/resolutions/:id', function(req, res) {

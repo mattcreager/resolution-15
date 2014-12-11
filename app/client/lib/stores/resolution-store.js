@@ -19,6 +19,8 @@ ResolutionStore.initialize = function() {
     constants.LOAD_RESOLUTIONS_FAIL, this.onLoadFail,
     constants.CREATE_RESOLUTION, this.onNewResolution,
     constants.CREATE_RESOLUTION_SUCCESS, this.onNewResolutionSuccess,
+    constants.UPDATE_RESOLUTION, this.onUpdate,
+    constants.UPDATE_RESOLUTION_SUCCESS, this.onUpdateSuccess,
     constants.REMOVE_RESOLUTION, this.onRemoveResolution
   ); 
 };
@@ -50,6 +52,19 @@ ResolutionStore.onNewResolutionSuccess = function(payload) {
   this.emit(constants.CHANGE_EVENT);
 };
 
+ResolutionStore.onUpdate = function(payload) {
+  var index = _(this.resolutions).findIndex({ id: payload.id });
+
+  this.resolutions[index] = _.merge(this.resolutions[index], payload);
+  this.emit(constants.CHANGE_EVENT);
+};
+
+ResolutionStore.onUpdateSuccess = function(payload) {
+  var index = _(this.resolutions).findIndex({ id: payload.id });
+
+  this.resolutions[index] = _.merge(this.resolutions[index], payload);
+  this.emit(constants.CHANGE_EVENT);
+};
 
 ResolutionStore.onLoadSuccess = function(payload) {
   this.resolutions = payload;

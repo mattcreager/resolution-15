@@ -42,6 +42,18 @@ resolutionActions.remove = function(uid) {
     });
 };
 
+resolutionActions.update = function(resolution) {
+  var dispatch = this.dispatch.bind(this);
+
+  dispatch(constants.UPDATE_RESOLUTION, resolution);
+
+  axios
+    .put('api/resolutions/' + resolution.id, resolution)
+    .then(function(response) {
+      dispatch(constants.UPDATE_RESOLUTION_SUCCESS, resolution);
+    });
+}
+
 resolutionActions.load = function() {
   var dispatch = this.dispatch.bind(this);
 
