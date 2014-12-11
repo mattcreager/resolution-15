@@ -21,6 +21,6 @@ module.exports = {
   },
 
   down: function(migration, DataTypes, done) {
-    migration.dropTable('resolutions').complete(done);
+    migration.dropTable('Resolutions').complete(done);
   }
 };
