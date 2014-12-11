@@ -33,6 +33,9 @@
     "lodash": "^2.4.1",
     "logfmt": "^1.2.0",
     "morgan": "^1.5.0",
+    "pg": "^4.1.0",
+    "sequelize": "^2.0.0-rc3",
+    "sequelize-cli": "^0.3.3",
     "serve-favicon": "^2.1.7",
     "swig": "^1.4.2"
   },

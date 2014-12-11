@@ -18,6 +18,7 @@ ResolutionStore.initialize = function() {
     constants.LOAD_RESOLUTIONS_SUCCESS, this.onLoadSuccess,
     constants.LOAD_RESOLUTIONS_FAIL, this.onLoadFail,
     constants.CREATE_RESOLUTION, this.onNewResolution,
+    constants.CREATE_RESOLUTION_SUCCESS, this.onNewResolutionSuccess,
     constants.REMOVE_RESOLUTION, this.onRemoveResolution
   ); 
 };
@@ -41,6 +42,14 @@ ResolutionStore.onNewResolution = function(payload) {
 
   this.emit(constants.CHANGE_EVENT);
 };
+
+ResolutionStore.onNewResolutionSuccess = function(payload) {
+  var index = _(this.resolutions).findIndex({ tempId: payload.tempId });
+
+  this.resolutions[index] = payload;
+  this.emit(constants.CHANGE_EVENT);
+};
+
 
 ResolutionStore.onLoadSuccess = function(payload) {
   this.resolutions = payload;

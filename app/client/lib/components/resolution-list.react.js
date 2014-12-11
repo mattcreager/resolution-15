@@ -24,16 +24,14 @@ ResolutionList.getStateFromFlux = function() {
 };
 
 ResolutionList.componentDidMount = function () {
-  //  if (this.props.token) {
   this.getFlux().actions.resolutions.load();
-  // }
 }
 
 ResolutionList.render = function() {
   var resolutions = _.map(this.state.resolutions, function(resolution) {
     return (
       <ResolutionItem
-        key={resolution.id} 
+        key={resolution.id || resolution.tempId} 
         uid={resolution.id}
         description={resolution.description}
         status={resolution.status}
