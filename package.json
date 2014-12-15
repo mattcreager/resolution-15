@@ -8,7 +8,7 @@
     "dev": "nf start -j Procfile.dev",
     "migration": "cd app/api && sequelize db:migrate",
     "migration:undo": "cd app/api && sequelize db:migrate:undo",
-    "test": "gulp test:local"
+    "test": "gulp lint"
   },
   "repository": {
     "type": "git",
@@ -48,10 +48,17 @@
     "browserify": "^7.0.0",
     "fluxxor": "^1.5.1",
     "gulp": "^3.8.10",
+    "gulp-cache": "^0.2.4",
+    "gulp-cached": "^1.0.1",
+    "gulp-jshint": "^1.9.0",
     "gulp-notify": "^2.0.1",
+    "gulp-react": "^2.0.0",
     "gulp-rename": "^1.2.0",
     "gulp-util": "^3.0.1",
     "jquery": "^2.1.1",
+    "jshint-stylish": "^1.0.0",
+    "jsxhint": "^0.9.0",
+    "minimist": "^1.1.0",
     "node-dev": "^2.6.0",
     "normalize.less": "^1.0.0",
     "pretty-hrtime": "^0.2.2",

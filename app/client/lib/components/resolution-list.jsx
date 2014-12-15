@@ -9,8 +9,8 @@ var _ = require('lodash');
 var FluxMixin = Fluxxor.FluxMixin(React);
 var StoreWatchMixin = Fluxxor.StoreWatchMixin;
 
-var ResolutionComposer = require('./resolution-composer.react');
-var ResolutionItem = require('./resolution-item.react');
+var ResolutionComposer = require('./resolution-composer.jsx');
+var ResolutionItem = require('./resolution-item.jsx');
 
 var ResolutionList = {};
 
@@ -25,7 +25,7 @@ ResolutionList.getStateFromFlux = function() {
 
 ResolutionList.componentDidMount = function () {
   this.getFlux().actions.resolutions.load();
-}
+};
 
 ResolutionList.render = function() {
   var resolutions = _.map(this.state.resolutions, function(resolution) {
@@ -38,7 +38,7 @@ ResolutionList.render = function() {
         complete={resolution.complete}
       />
     );
-  })
+  });
   return (
     <section>
       <ResolutionComposer />

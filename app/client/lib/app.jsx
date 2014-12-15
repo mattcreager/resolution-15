@@ -1,4 +1,5 @@
 /* @jsx React.DOM */
+/* exported bootstrap */
 
 'use strict';
 
@@ -8,7 +9,7 @@ var bootstrap = require('bootstrap');
 var React = require('react');
 var Fluxxor = require('fluxxor');
 
-var ResolutionList = require('./components/resolution-list.react');
+var ResolutionList = require('./components/resolution-list.jsx');
 var ResolutionStore = require('./stores/resolution-store');
 var resolutionActions = require('./actions/resolution-actions');
 

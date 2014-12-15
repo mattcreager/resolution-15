@@ -8,7 +8,6 @@ var React = require('react');
 var ResolutionItem = {};
 
 var FluxMixin = Fluxxor.FluxMixin(React);
-var StoreWatchMixin = Fluxxor.StoreWatchMixin;
 
 ResolutionItem.mixins = [ FluxMixin ];
 
@@ -17,7 +16,7 @@ ResolutionItem.handleClick = function() {
 };
 
 ResolutionItem.handleCheck = function() {
-  var resolutionId = this.props.uid
+  var resolutionId = this.props.uid;
 
   this.getFlux().actions.resolutions.update({
     id: resolutionId,

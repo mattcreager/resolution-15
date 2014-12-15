@@ -1,8 +1,7 @@
 'use strict';
 
-var Promise = require('bluebird');
-var _ = require('lodash');
 var axios = require('axios');
+var _ = require('lodash');
 
 var constants = require('../constants/resolution-constants');
 
@@ -31,13 +30,13 @@ resolutionActions.create = function(description) {
 };
 
 resolutionActions.remove = function(uid) {
-  var dispatch = this.dispatch.bind(this);
+  var dispatch = _.bind(this.dispatch, this);
   
   dispatch(constants.REMOVE_RESOLUTION, uid);
 
   axios
     .delete('api/resolutions/' + uid)
-    .then(function(result) {
+    .then(function() {
       dispatch(constants.REMOVE_RESOLUTION_SUCCESS, uid);
     });
 };
@@ -49,10 +48,10 @@ resolutionActions.update = function(resolution) {
 
   axios
     .put('api/resolutions/' + resolution.id, resolution)
-    .then(function(response) {
+    .then(function() {
       dispatch(constants.UPDATE_RESOLUTION_SUCCESS, resolution);
     });
-}
+};
 
 resolutionActions.load = function() {
   var dispatch = this.dispatch.bind(this);

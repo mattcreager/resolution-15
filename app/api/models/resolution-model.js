@@ -1,3 +1,4 @@
+'use strict';
 
 module.exports = function(sequelize, DataTypes) {
 	return sequelize.define('Resolution', {
@@ -9,4 +10,4 @@ module.exports = function(sequelize, DataTypes) {
 	    allowNull: false
 	  }
 	});
-}
+};

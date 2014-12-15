@@ -20,9 +20,9 @@ gulp.task('browserify', function() {
   var bundler = browserify(path.resolve(__dirname, '../..', 'app/client/index.js'), {
     basedir: __dirname,
     debug: true,
-    cache: {}, // required for watchify
+    cache: {},        // required for watchify
     packageCache: {}, // required for watchify
-    fullPaths: true, // required to be true only for watchify,
+    fullPaths: true,  // required for watchify,
     globals: false
   });
 
@@ -38,13 +38,9 @@ gulp.task('browserify', function() {
 
     return bundler
       .bundle()
-      // Report compile errors
       .on('error', handleErrors)
-      // Use vinyl-source-stream to make the
-      // stream gulp compatible. Specifiy the
-      // desired output filename here.
+      // Use vinyl-source-stream to make the stream gulp compatible
       .pipe(source('main-build.js'))
-      // Specify the output destination
       .pipe(gulp.dest('./app/client/public'))
       // Log when bundling completes!
       .on('end', bundleLogger.end);

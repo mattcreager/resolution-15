@@ -8,7 +8,7 @@ var api = new express.Router();
 
 var db = require('./models');
 
-module.exports = function(config) {
+module.exports = function() {
   api.use(bodyParser.json());
   api.use(bodyParser.urlencoded({ extended: true })); 
 
@@ -21,7 +21,7 @@ module.exports = function(config) {
   });
 
   api.get('/resolutions/:id', function(req, res) {
-    res.json(mockResolution)
+    res.sendStatus(200);
   });
 
   api.post('/resolutions', function(req, res) {
@@ -38,9 +38,9 @@ module.exports = function(config) {
       .then(function(resolution) {
         return resolution.updateAttributes(req.body);
       })
-      .then(function(result) {
+      .then(function() {
         res.sendStatus(200);
-      })
+      });
   });
 
   api.delete('/resolutions/:id', function(req, res) {
@@ -50,9 +50,9 @@ module.exports = function(config) {
         if (!resolution) {
           res.sendStatus(200);
           return;
-        };
+        }
 
-        resolution.destroy()
+        resolution.destroy();
         res.sendStatus(200);
       });
   });

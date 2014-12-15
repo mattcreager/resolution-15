@@ -29,7 +29,7 @@ ResolutionStore.onRemoveResolution = function(uid) {
   this.resolutions = _.reject(this.resolutions, {id: uid});
 
   this.emit(constants.CHANGE_EVENT);
-}
+};
 
 ResolutionStore.onLoad = function() {
   this.loading = true;

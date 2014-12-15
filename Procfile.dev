@@ -1,2 +1,3 @@
 web: node-dev app/server.js
 gulp: gulp
+gulp-lint: gulp lint --watch true
