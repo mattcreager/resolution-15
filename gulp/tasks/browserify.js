@@ -14,7 +14,7 @@ var source = require('vinyl-source-stream');
 var bundleLogger = require('../util/bundle-logger');
 var handleErrors = require('../util/error-handler');
 var reactify = require('reactify');
-var path = require('path');
+var path = require('path')
 
 gulp.task('browserify', function() {
   var bundler = browserify(path.resolve(__dirname, '../..', 'app/client/index.js'), {

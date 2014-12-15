@@ -1,6 +1,8 @@
 resolution-15
 =============
 
+[![Build Status](https://travis-ci.org/mattcreager/resolution-15.svg?branch=master)](https://travis-ci.org/mattcreager/resolution-15)
+
 Temp up & running instructions
 
 1. Download and install http://postgresapp.com/

@@ -1,7 +1,7 @@
 'use strict';
 
 var logger = require('logfmt');
-var express = require('express');  
+var express = require('express')  
 
 var config = require('./config');
 var api = require('./api');

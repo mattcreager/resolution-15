@@ -22,7 +22,7 @@ gulp.task('lint', function() {
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'));
 
-    if (process.env.CI) {
+  if (process.env.CI) {
     stream = stream.pipe(jshint.reporter('fail'));
   }
 
