@@ -6285,3 +6285,7 @@ button.close {
     display: none !important;
   }
 }
+/* Nick's sweet styles */
+body {
+  background: red;
+}
