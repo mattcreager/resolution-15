@@ -4,11 +4,11 @@
   "description": "Track your 2015 New Years Resolutions using this Sample Application created by Heroku",
   "main": "index.js",
   "scripts": {
-    "start": "node lib/server.js",
+    "start": "npm run migration && node app/server.js",
     "dev": "nf start -j Procfile.dev",
     "migration": "cd app/api && sequelize db:migrate",
     "migration:undo": "cd app/api && sequelize db:migrate:undo",
-    "test": "gulp lint"
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",

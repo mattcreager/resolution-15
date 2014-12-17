@@ -1,4 +1,10 @@
 language: node_js
 node_js:
-  - "0.10"
-  - "0.11"
+- '0.10'
+deploy:
+  provider: heroku
+  api_key:
+    secure: esnxQ/34tv4B1xYufBVx5Phnh6fr7R5qhcH+ZyZLOtiRh82jhV1vjjHQ9bjvX0421hCeMM0kUJnXgHgvtijMKCeq2kP9CVESWtzzbi5fBKpUWxDgPAJlFobkwL1AGhNpzFPK3d0NZy2DkuhAj0hCu+/lbUsbvBQW4ry/XxpWhrA=
+  app: boiling-journey-4018
+  on:
+    repo: mattcreager/resolution-15
