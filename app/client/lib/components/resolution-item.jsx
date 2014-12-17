@@ -25,24 +25,24 @@ ResolutionItem.handleCheck = function() {
 };
 
 ResolutionItem.render = function() {
-  var groupStyle = { marginBottom: '15px' };
+  var groupStyle = {  };
 
   return (
-    <div className="input-group" style={groupStyle}>
-      <span className="input-group-addon">
-        <input 
-          type="checkbox" 
-          checked={this.props.complete} 
-          onChange={this.handleCheck} 
+    <div className="resolution-item input-group" style={groupStyle}>
+      <span className="input-group-addon checkbox">
+        <input
+          type="checkbox"
+          checked={this.props.complete}
+          onChange={this.handleCheck}
         />
       </span>
-      <input 
-        type="text" 
-        className="form-control" 
-        value={this.props.description} 
-        disabled 
+      <input
+        type="text"
+        className="form-control"
+        value={this.props.description}
+        disabled
       />
-      <span className="input-group-btn">
+      <span className="input-group-btn remove">
         <button className="btn btn-danger" type="button" onClick={this.handleClick}><span className="glyphicon glyphicon-remove"></span></button>
       </span>
     </div>

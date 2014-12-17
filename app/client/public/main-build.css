@@ -2335,7 +2335,7 @@ output {
   padding-top: 7px;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #555555;
+  color: #e6e9ee;
 }
 .form-control {
   display: block;
@@ -2344,7 +2344,7 @@ output {
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #555555;
+  color: #e6e9ee;
   background-color: #ffffff;
   background-image: none;
   border: 1px solid #cccccc;
@@ -3546,7 +3546,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   font-size: 14px;
   font-weight: normal;
   line-height: 1;
-  color: #555555;
+  color: #e6e9ee;
   text-align: center;
   background-color: #eeeeee;
   border: 1px solid #cccccc;
@@ -3679,7 +3679,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
-  color: #555555;
+  color: #e6e9ee;
   background-color: #ffffff;
   border: 1px solid #dddddd;
   border-bottom-color: transparent;
@@ -6285,7 +6285,167 @@ button.close {
     display: none !important;
   }
 }
-/* Nick's sweet styles */
+a,
+button {
+  -webkit-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
 body {
-  background: red;
+  padding-top: 8em;
+  background: #e6e9ee;
+  color: #2c3e50;
+  font-family: 'Lato', 'Helvetica Neue', sans-serif;
+  font-size: 10px;
+  font-weight: 100;
+}
+@media (min-width: 768px) {
+  body {
+    font-size: 12px;
+  }
+}
+@media (min-width: 992px) {
+  body {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    font-size: 18px;
+  }
+}
+.site-header {
+  height: 8em;
+  background: #354b60;
+  text-align: center;
+  color: white;
+}
+.site-header h1 {
+  margin-top: 2em;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.75em;
+  letter-spacing: 1px;
+}
+.input-group {
+  width: 100%;
+  margin-bottom: 0;
+}
+.form-control {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  font-size: 2em;
+  height: auto;
+  padding: 1em;
+  box-shadow: none;
+  color: #2c3e50;
+  background: #fafafa;
+  -webkit-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+.form-control[disabled] {
+  background: #fafafa;
+}
+.input-group {
+  background: #fafafa;
+  display: block;
+  margin-bottom: 1px;
+  overflow: hidden;
+}
+.input-group .btn {
+  background: none;
+  border-radius: 0;
+  border: 0;
+  color: rgba(44, 62, 80, 0.2);
+  font-size: 1.5em;
+}
+.input-group .btn:hover,
+.input-group .btn:active,
+.input-group .btn:focus {
+  background: none;
+  border: 0;
+}
+.input-group .btn:hover {
+  color: rgba(44, 62, 80, 0.9);
+}
+.input-group .btn:active,
+.input-group .btn:focus {
+  outline: 0;
+}
+.input-group .btn:active {
+  top: 1px;
+}
+.input-group .input-group-addon,
+.input-group .input-group-btn {
+  position: absolute;
+  top: 0;
+  margin: 0;
+  width: 5em;
+  height: 100%;
+  background: none;
+  z-index: 3;
+  font-size: 1em;
+  border-radius: 0;
+  -webkit-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+.input-group .input-group-addon:focus,
+.input-group .input-group-btn:focus {
+  outline: 0;
+}
+.input-group .input-group-addon .btn,
+.input-group .input-group-btn .btn {
+  display: block;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+.input-group .input-group-addon {
+  left: 0;
+  background: none;
+  border: 0;
+}
+.input-group .input-group-btn {
+  right: 0;
+}
+.input-group .form-control {
+  cursor: default;
+}
+.input-group.resolution-item .checkbox {
+  left: -5em;
+}
+.input-group.resolution-item .remove {
+  right: -5em;
+}
+.input-group.resolution-item:hover .form-control {
+  padding-left: 2.5em;
+}
+.input-group.resolution-item:hover .checkbox {
+  left: 0;
+}
+.input-group.resolution-item:hover .remove {
+  right: 0;
+}
+.input-add .form-control {
+  background: #2c3e50;
+  color: #fafafa;
+  cursor: text;
+}
+.input-add .form-control::-webkit-input-placeholder {
+  color: #566472;
+}
+.input-add .form-control:-moz-placeholder {
+  *color: #566472;
+}
+.input-add .form-control::-moz-placeholder {
+  *color: #566472;
+}
+.input-add .form-control:-ms-input-placeholder {
+  color: #566472;
+}
+.input-add .add .btn {
+  color: #fafafa;
 }

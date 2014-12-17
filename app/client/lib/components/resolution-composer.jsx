@@ -35,9 +35,9 @@ ResolutionComposer.handleClick = function() {
 
 ResolutionComposer.render = function() {
   return (
-    <div className="input-group">
-      <input type="text" className="form-control" value={this.state.description} onChange={this.handleChange} />
-      <span className="input-group-btn">
+    <div className="input-add input-group">
+      <input type="text" className="form-control" placeholder="Your resolution (e.g. Find extra-terrestrial life, hold a seance)" value={this.state.description} onChange={this.handleChange} />
+      <span className="input-group-btn add">
         <button className="btn btn-info" type="button" onClick={this.handleClick}><span className="glyphicon glyphicon-plus"></span></button>
       </span>
     </div>

@@ -31,7 +31,7 @@ ResolutionList.render = function() {
   var resolutions = _.map(this.state.resolutions, function(resolution) {
     return (
       <ResolutionItem
-        key={resolution.id || resolution.tempId} 
+        key={resolution.id || resolution.tempId}
         uid={resolution.id}
         description={resolution.description}
         status={resolution.status}
@@ -42,7 +42,6 @@ ResolutionList.render = function() {
   return (
     <section>
       <ResolutionComposer />
-      <br />
       {resolutions}
     </section>
   );
