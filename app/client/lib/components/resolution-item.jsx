@@ -31,10 +31,12 @@ ResolutionItem.render = function() {
     <div className="resolution-item input-group" style={groupStyle}>
       <span className="input-group-addon checkbox">
         <input
+          id={this.props.uid}
           type="checkbox"
           checked={this.props.complete}
           onChange={this.handleCheck}
         />
+        <label htmlFor={this.props.uid}></label>
       </span>
       <input
         type="text"

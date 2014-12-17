@@ -7,6 +7,7 @@
 @navy: #2C3E50;
 @green: #52CCB3;
 @green-light: #D8F0EC;
+@red: #d35400;
 
 //Layout
 @header-height: 8em;
@@ -118,6 +119,11 @@ body {
     &:active {
       top: 1px;
     }
+    &.btn-danger {
+      &:hover {
+        color: @red;
+      }
+    }
   }
   .input-group-addon,
   .input-group-btn {
@@ -154,7 +160,32 @@ body {
   }
   &.resolution-item {
     .checkbox {
+      padding: 0;
       left: -@button-width;
+      label {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: blue;
+        &:before {
+          position: relative;
+          top: 2em;
+          left: -1em;
+          content: "unchecked"
+        }
+      }
+      input {
+        // visibility: hidden;
+        font-size: 2em;
+        position: absolute;
+        &[checked] {
+          + label {
+            &:before {
+              content: "checked"
+            }
+          }
+        }
+      }
     }
     .remove {
       right: -@button-width;
