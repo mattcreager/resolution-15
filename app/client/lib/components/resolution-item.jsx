@@ -3,7 +3,7 @@
 'use strict';
 
 var Fluxxor = require('fluxxor');
-var React = require('react');
+var React = require('react/addons');
 
 var ResolutionItem = {};
 
@@ -25,15 +25,21 @@ ResolutionItem.handleCheck = function() {
 };
 
 ResolutionItem.render = function() {
-  var groupStyle = {  };
+  console.log(this.props.complete)
+  var cx = React.addons.classSet;
+  var classes = cx({
+    'yo': this.props.complete,
+    'resolution-item': true,
+    'input-group': true
+  });
 
   return (
-    <div className="resolution-item input-group" style={groupStyle}>
+    <div className={classes}>
       <span className="input-group-addon checkbox">
         <input
-          id={this.props.uid}
           type="checkbox"
-          checked={this.props.complete}
+          id={this.props.uid}
+          checked={this.props.complete ? 'checked' : false}
           onChange={this.handleCheck}
         />
         <label htmlFor={this.props.uid}></label>
