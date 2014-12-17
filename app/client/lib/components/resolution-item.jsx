@@ -28,9 +28,9 @@ ResolutionItem.render = function() {
   console.log(this.props.complete)
   var cx = React.addons.classSet;
   var classes = cx({
-    'yo': this.props.complete,
+    'input-group': true,
     'resolution-item': true,
-    'input-group': true
+    'resolution-item-checked': this.props.complete
   });
 
   return (
