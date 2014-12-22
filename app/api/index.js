@@ -3,25 +3,31 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var _ = require('lodash');
+var db = require('./models');
 
 var api = new express.Router();  
 
-var db = require('./models');
+var NOT_IMPLEMENTED = 501;
+var CREATED = 201;
+var NO_CONTENT = 204;
+var NOT_FOUND = 404;
 
 module.exports = function() {
   api.use(bodyParser.json());
   api.use(bodyParser.urlencoded({ extended: true })); 
 
   api.get('/resolutions', function(req, res) {
-    db.Resolution.all().then(function(resolutions) {
-      res.json(_.map(resolutions, function(resolution) {
-        return resolution.toJSON();
-      }));
-    });
+    db.Resolution
+      .all({ order: 'id ASC' })
+      .then(function(resolutions) {
+        res.json(_.map(resolutions, function(resolution) {
+          return resolution.toJSON();
+        }));
+      });
   });
 
   api.get('/resolutions/:id', function(req, res) {
-    res.sendStatus(200);
+    res.sendStatus(NOT_IMPLEMENTED);
   });
 
   api.post('/resolutions', function(req, res) {
@@ -39,7 +45,7 @@ module.exports = function() {
         return resolution.updateAttributes(req.body);
       })
       .then(function() {
-        res.sendStatus(200);
+        res.sendStatus(CREATED);
       });
   });
 
@@ -48,12 +54,12 @@ module.exports = function() {
       .find(req.params.id)
       .then(function(resolution) {
         if (!resolution) {
-          res.sendStatus(200);
+          res.sendStatus(NOT_FOUND);
           return;
         }
 
         resolution.destroy();
-        res.sendStatus(200);
+        res.sendStatus(NO_CONTENT);
       });
   });
 
