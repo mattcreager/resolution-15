@@ -6,8 +6,11 @@ var Sequelize = require("sequelize");
 var env       = process.env.NODE_ENV || "development";
 var config    = require(__dirname + '/../config/config.json')[env];
 
-var sequelize = new Sequelize(config.database, config.username, config.password, config);
-var db        = {};
+var connectUrl = process.env.DATABASE_URL || 'postgres://' + config.username + ':' + config.password +'@' + config.host + ':' + config.port  + '/' + config.database;
+
+var sequelize = new Sequelize(connectUrl, config);
+
+var db = {};
 
 fs
   .readdirSync(__dirname)

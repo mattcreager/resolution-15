@@ -11,12 +11,5 @@ module.exports = {
   server : {
     host : '0.0.0.0',
     port : util.int(process.env.PORT) || 5000
-  },
-  database: {
-    host     : process.env.DB_HOST || 'localhost',
-    user     : process.env.DB_USER || 'postgres',
-    password : process.env.DB_PASSWORD || '',
-    database : process.env.DB_NAME || 'resolution15',
-    charset  : 'utf8'
   }
 };

@@ -1,0 +1,19 @@
+{
+  "name": "A New Years Resolution App",
+  "description": "What will you accomplish in the new year?",
+  "website": "https://resolution15.herokuapps.com/",
+  "repository": "https://github.com/mattcreager/resolution-15",
+  "scripts": {
+    "postdeploy": "npm run migration"
+  },
+  "env": {
+    "NODE_ENV": {
+      "value": "production",
+      "required": true
+    }
+  },
+  "success_url": "/",
+  "addons": [
+    "heroku-postgresql"
+  ]
+}
