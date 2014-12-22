@@ -10,8 +10,6 @@ logger.log({ type: 'info', msg: 'server started, listening on port: ' + config.s
 
 var app = express();
 
-console.log(__dirname + '/public');
-
 // Mount Client & API specific routes
 app.use('/', express.static(__dirname + '/client/public'));
 app.use('/api', api(config));
