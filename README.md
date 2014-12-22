@@ -4,9 +4,12 @@
 
 A holiday twist, on the classic todo example. What will you accomplish in 2015?
 
+
 Check it out at [https://resolution-15.herokuapp.com/](https://resolution-15.herokuapp.com/)
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/mattcreager/resolution-15)
+
+![Screenshot](screenshot.png)
 
 ## Local dependencies
 
