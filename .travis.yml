@@ -5,6 +5,6 @@ deploy:
   provider: heroku
   api_key:
     secure: fMlUMCmhd/grT4RQFoi0jKhjhofGzQhncddXRNEIamnLloDmM5Y/lnV4R3cmsMO/sBC4C2+O6U/q6pka7q3wLcPy8GMUnKhoD8VcF73nJ40pJ5ajMHgL1r+cIDUG3Cd6PVodzeY7iioiBg+wpF/BWN6DaEzOvrHHMw7/S/OLomM=
-  app: boiling-journey-4018
+  app: resolution-15
   on:
     repo: mattcreager/resolution-15
