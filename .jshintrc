@@ -1,11 +1,9 @@
 {
-    "maxerr"        : 50,       // {int} Maximum error before stopping
-
     // Enforcing
-    "camelcase"     : true,    // true: Identifiers must be in camelCase
-    "curly"         : false,   // true: Require {} for every new block or scope
-    "indent"        : 2,       // {int} Number of spaces to use for indentation
-    "newcap"        : false,   // true: Require capitalization of all constructor functions
+    "camelcase"     : true,    // Identifiers in camelCase
+    "curly"         : false,   // Don't require {} for every new block or scope
+    "indent"        : 2,       // 2 spaces used for indentation
+    "newcap"        : false,   // Don't require capitalization of constructors
 
     "maxdepth"      : 5,
 

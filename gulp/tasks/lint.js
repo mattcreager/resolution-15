@@ -1,12 +1,22 @@
+'use strict';
+
+/**
+ * @fileOverview
+ * Lint Task
+ * Lint JS files
+ */
+
 var gulp = require('gulp');
 var react = require('gulp-react');
 var jshint = require('gulp-jshint');
 var cache = require('gulp-cached');
+var minimist = require('minimist');
 
 var handleErrors = require('../util/error-handler');
 
-var minimist = require('minimist');
-
+// Support watch cli argument
+// example: gulp lint --watch true
+// defaults to false
 var knownOptions = {
   string: 'watch',
   default: { watch: false }
@@ -15,7 +25,11 @@ var knownOptions = {
 var options = minimist(process.argv.slice(2), knownOptions);
 
 gulp.task('lint', function() {
-  var stream = gulp.src(['./app/**/*.js', './app/**/*.jsx', '!./app/client/public/main-build.js'])
+  var stream = gulp.src([
+      './app/**/*.js', 
+      './app/**/*.jsx', 
+      '!./app/client/public/main-build.js' // ignore build-file
+    ])
     .pipe(cache('jshint'))
     .pipe(react())
     .on('error', handleErrors)

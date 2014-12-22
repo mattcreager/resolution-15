@@ -1,10 +1,14 @@
 'use strict';
 
+/**
+ * @fileOverview
+ * Watch Task
+ * Run setWatch & browser-sync tasks, compiles less when less files change
+ */
+
 var gulp = require('gulp');
 
 gulp.task('watch', ['setWatch', 'browserSync'], function() {
-  gulp.watch('./app/client/less/**', ['less']);
-  // gulp.watch('src/images/**', ['images']);
-  // gulp.watch('src/htdocs/**', ['copy']);
   // Note: The browserify task handles js recompiling with watchify
+  gulp.watch('./app/client/less/**', ['less']);
 });

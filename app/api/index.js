@@ -7,6 +7,7 @@ var db = require('./models');
 
 var api = new express.Router();  
 
+// HTTP status constants
 var NOT_IMPLEMENTED = 501;
 var CREATED = 201;
 var NO_CONTENT = 204;
@@ -24,10 +25,6 @@ module.exports = function() {
           return resolution.toJSON();
         }));
       });
-  });
-
-  api.get('/resolutions/:id', function(req, res) {
-    res.sendStatus(NOT_IMPLEMENTED);
   });
 
   api.post('/resolutions', function(req, res) {
@@ -61,6 +58,10 @@ module.exports = function() {
         resolution.destroy();
         res.sendStatus(NO_CONTENT);
       });
+  });
+
+  api.get('/resolutions/:id', function(req, res) {
+    res.sendStatus(NOT_IMPLEMENTED);
   });
 
   return api;

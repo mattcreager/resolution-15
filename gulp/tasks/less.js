@@ -1,5 +1,11 @@
 'use strict';
 
+/**
+ * @fileOverview
+ * Less Task
+ * Compiles less files
+ */
+
 var gulp = require('gulp');
 var less = require('gulp-less');
 var path = require('path');
@@ -12,8 +18,8 @@ gulp.task('less', function () {
     .pipe(less({
       paths: [ 
         path.join(__dirname, 'less', 'includes'),
-        path.resolve('./node_modules', 'bootstrap', 'less'),
-        path.resolve('./node_modules', 'normalize.less')
+        path.resolve('./node_modules', 'bootstrap', 'less'), // import bootstrap
+        path.resolve('./node_modules', 'normalize.less')     // import normalize
       ]
     }))
     .pipe(rename('main-build.css'))

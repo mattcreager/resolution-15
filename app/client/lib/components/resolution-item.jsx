@@ -25,7 +25,6 @@ ResolutionItem.handleCheck = function() {
 };
 
 ResolutionItem.render = function() {
-  console.log(this.props.complete)
   var cx = React.addons.classSet;
   var classes = cx({
     'input-group': true,
